@@ -1,0 +1,10 @@
+.layout {
+    gap: 2rem;
+    padding: 2.5rem 3rem;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem
+}
