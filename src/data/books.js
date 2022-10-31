@@ -1,3 +1,5 @@
+import { v4 as uuidv4} from 'uuid'
+
 export const books = [
   {
     title: 'Несносное проклятье некроманта',
@@ -211,4 +213,4 @@ export const books = [
     cost: 142.523,
     kind: 'Комиксы',
   },
-]
+].map(book => ({...book, id: uuidv4()}))

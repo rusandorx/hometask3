@@ -6,7 +6,7 @@ export const BooksList = ({ books, kind }) =>
   (
     <ul className={classNames(classes.list)}>
       {books.filter(book => book.kind === kind).map(book => (
-        <li key={book.title}
+        <li key={book.id}
             className={classNames(classes.item)}
         >
           <BookCard title={book.title}
