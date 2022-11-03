@@ -1,6 +1,6 @@
-import React from 'react'
-import classes from './Review.module.css'
-import { Rating } from '../Rating/Rating'
+import React from 'react';
+import classes from './Review.module.css';
+import { Rating } from '../Rating/Rating';
 
 const Review = ({ name, rating, text }) =>
   (
@@ -11,6 +11,6 @@ const Review = ({ name, rating, text }) =>
       </div>
       <p className={classes.text}>{text}</p>
     </article>
-  )
+  );
 
-export default Review
+export default Review;

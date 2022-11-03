@@ -1,5 +1,5 @@
-import React from 'react'
-import classes from './TextCard.module.css'
+import React from 'react';
+import classes from './TextCard.module.css';
 
 const TextCard = ({ heading, text }) => {
   return (
@@ -7,7 +7,7 @@ const TextCard = ({ heading, text }) => {
       <h2 className={classes.heading}>{heading}</h2>
       <p className={classes.text}>{text}</p>
     </article>
-  )
-}
+  );
+};
 
-export default TextCard
+export default TextCard;

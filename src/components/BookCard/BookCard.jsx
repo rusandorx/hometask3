@@ -1,8 +1,7 @@
-import classNames from 'classnames'
-import classes from './BookCard.module.css'
-import { Rating } from '../Rating/Rating'
-import { Counter } from '../Counter/Counter'
-import { useEffect } from 'react'
+import classNames from 'classnames';
+import classes from './BookCard.module.css';
+import { Rating } from '../Rating/Rating';
+import { Counter } from '../Counter/Counter';
 
 export const BookCard = ({
   title,
@@ -32,4 +31,4 @@ export const BookCard = ({
         </div>
       </div>
     </article>
-  )
+  );

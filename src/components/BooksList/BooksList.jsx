@@ -1,6 +1,6 @@
-import classes from './BookList.module.css'
-import { BookCard } from '../BookCard/BookCard'
-import classNames from 'classnames'
+import classes from './BookList.module.css';
+import { BookCard } from '../BookCard/BookCard';
+import classNames from 'classnames';
 
 export const BooksList = ({ books, kind }) =>
   (
@@ -18,4 +18,4 @@ export const BooksList = ({ books, kind }) =>
         </li>
       ))}
     </ul>
-  )
+  );
