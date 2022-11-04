@@ -15,11 +15,11 @@ const App = () => {
   return (
     <>
       <Header/>
-      {/* Разкомментировать чтобы открыть вторую страницу */}
-      {/* <BookPage book={books[0]}/> */}
-      <BooksPage kinds={kinds}
-                 books={books}
-      />
+       {/* Разкомментировать чтобы открыть вторую страницу */}
+       <BookPage book={books[2]}/>
+      {/* <BooksPage kinds={kinds} */}
+      {/*           books={books} */}
+      {/* /> */}
     </>
   );
 };
