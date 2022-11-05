@@ -1,16 +1,21 @@
 const router = require('express').Router();
-const { books, reviews } = require('./mock');
+const { books, reviews, kinds } = require('./mock');
+
+router.get('/kinds', (req, res) => {
+  return res.status(200).json(kinds);
+});
 
 router.get('/books', (req, res) => {
-  const { bookId, bookKind } = req.query;
+  const { bookId, kindId } = req.query;
 
-  if (!bookId && !bookKind) {
+  if (!bookId && !kindId) {
     return res.status(200).json(books);
   }
   if (bookId) {
     return res.status(200).json(books.find(({ id }) => id === bookId));
   }
-  return res.status(200).json(books.filter(({ kind }) => kind === bookKind));
+  const kindBooks = kinds.find(({ id }) => id === kindId).books;
+  return res.status(200).json(books.filter(({ id }) => kindBooks.includes(id)));
 });
 
 router.get('/reviews', (req, res) => {

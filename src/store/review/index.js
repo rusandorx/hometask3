@@ -7,8 +7,8 @@ const initialState = {
   status: Statuses.idle,
 };
 
-export const bookSlice = createSlice({
-  name: 'book',
+export const reviewSlice = createSlice({
+  name: 'review',
   initialState,
   reducers: {
     startLoading: state => {

@@ -2,8 +2,11 @@
   "name": "books-backend",
   "version": "1.0.0",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "express": "^4.18.2",
-    "body-parser": "^1.20.1"
+    "supervisor": "^0.12.0"
   },
-  "start":"supervisor server.js"
+  "scripts": {
+    "start": "supervisor server.js"
+  }
 }

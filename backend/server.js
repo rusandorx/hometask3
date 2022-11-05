@@ -1,7 +1,7 @@
 const express = require('express');
 const api = require('./api');
 const bodyParser = require('body-parser');
-const port = 8080;
+const port = 3030;
 
 const app = express();
 
@@ -14,7 +14,8 @@ app.use('/api', api);
 
 app.listen(port, 'localhost', err => {
   if (err) {
-    return console.log(err);
+    console.log(err);
+    return;
   }
 
   console.log(`https://localhost:${port}`);

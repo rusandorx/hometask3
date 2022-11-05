@@ -1,22 +1,32 @@
 import classes from './KindList.module.css';
 import classNames from 'classnames';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadKinds } from '../../store/kind/loadKinds';
+import { selectKinds, selectSelectedKindId } from '../../store/kind/selectors';
+import { changeSelectedKindId } from '../../store/kind';
 
-export const KindList = ({ kinds, initKind, childToParent }) => {
-  const [currentKind, setCurrentKind] = useState(initKind);
+export const KindList = () => {
+  const dispatch = useDispatch();
+  const kinds = useSelector(selectKinds);
+  const selectedKindId = useSelector(selectSelectedKindId);
 
-  useEffect(() => childToParent(currentKind), [currentKind]);
+  useEffect(() => dispatch(loadKinds), []);
+
+  if (!kinds?.length) {
+    return <p>Загрузка</p>;
+  }
 
   return (
     <ul className={classNames(classes.list)}>
       {
         kinds.map((kind, i) =>
-          <li key={i} className={classNames(classes.item)}>
+          <li key={kind.id} className={classNames(classes.item)}>
             <button
               className={classNames(classes.button,
-                { [classes.button_current]: currentKind === kind })}
-              onClick={() => setCurrentKind(kind)}>
-              {kind}
+                { [classes.button_current]: selectedKindId === kind.id })}
+              onClick={() => dispatch(changeSelectedKindId(kind.id))}>
+              {kind.name}
             </button>
           </li>)
       }
