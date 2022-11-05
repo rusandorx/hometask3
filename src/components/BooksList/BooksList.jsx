@@ -15,16 +15,11 @@ export const BooksList = () => {
     <ul className={classNames(classes.list)}>
       {books?.length
         ? books
-          .map(book => (
-            <li key={book.id}
+          .map(({ id: bookId }) => (
+            <li key={bookId}
                 className={classNames(classes.item)}
             >
-              <BookCard title={book.title}
-                        author={book.author}
-                        genre={book.genre}
-                        rating={book.rating}
-                        cost={book.cost}
-              />
+              <BookCard bookId={bookId}/>
             </li>
           ))
         : null}

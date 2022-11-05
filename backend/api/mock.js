@@ -1,6 +1,6 @@
-const { v4: uuidv4 } = require('uuid');
+// const { v4: uuidv4 } = require('uuid');
 
-const addId = obj => ({ id: uuidv4(), ...obj });
+// const addId = obj => ({ id: uuidv4(), ...obj });
 
 const kinds = [
   {
@@ -82,7 +82,7 @@ const books = [
     reviews: [
       '0c2dd333-8f3e-454c-af2f-d3e019c00b66',
       'aa4e0197-e587-4577-bbf3-13265e500e64',
-      'ee267607-9f29-419f-a2d7-9ef490a4cdfa'],
+      'ee267607-9f29-419f-a2d7-9ef490a4cdfa',],
     id: 'f051d07c-3cdc-4a72-a5ef-92d81f8c3718',
   },
   {
@@ -91,7 +91,7 @@ const books = [
     genre: 'Комедия',
     rating: 2,
     cost: 325,
-    reviews: [],
+    reviews: ['0c2dd333-8f3e-454c-af2f-d3e019c00b32'],
     id: '19f2b879-dcb7-495b-807b-4ace00c59142',
   },
   {
@@ -272,6 +272,9 @@ const books = [
   },
 ];
 
+const booksById = {};
+books.forEach(book => { booksById[book.id] = book; });
+
 const reviews = [
   {
     id: '0c2dd333-8f3e-454c-af2f-d3e019c00b66',
@@ -292,6 +295,15 @@ const reviews = [
       'Начало весьма непредсказуемое, и непонятно кто или что из себя представляет героиня. Повествование сумбурное, словно не книгу читаешь, а над ухом кто-то трещит и быстро-быстро что-то пересказывает. Перескакивает с одного на другое очень быстро, что приходилось перечитывать многие моменты. В прологе они на кладбище, их хотят изгонять, а потом резко замке. А там вообще страшные события...',
     rating: 3,
   },
+  {
+    id: '0c2dd333-8f3e-454c-af2f-d3e019c00b32',
+    author: 'Redmick K.',
+    text: 'Обожаю эту книгу!!!',
+    rating: 2
+  }
 ];
 
-module.exports = { books, reviews, kinds };
+const reviewsById = {};
+reviews.forEach(review => { reviewsById[review.id] = review; });
+
+module.exports = { kinds, books, booksById, reviews, reviewsById };

@@ -19,10 +19,16 @@ const selectBooksByKind = (state, kindId) => {
 const selectIsBooksLoading = state => selectBookSlice(state).status ===
   Statuses.inProgress;
 
+const selectBookById = (state, bookId) => {
+  return selectBookSlice(state)
+    .entities[bookId];
+};
+
 export {
   selectBookSlice,
   selectBooks,
   selectBookIds,
   selectBooksByKind,
   selectIsBooksLoading,
+  selectBookById,
 };

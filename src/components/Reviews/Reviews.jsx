@@ -1,7 +1,10 @@
 import classes from './Reviews.module.css';
 import Review from '../Review/Review';
+import { useReviews } from '../../hooks/useReviews';
 
-export const Reviews = ({ reviews }) => {
+export const Reviews = ({ bookId }) => {
+  const { reviews } = useReviews(bookId);
+
   if (!reviews?.length) {
     return null;
   }

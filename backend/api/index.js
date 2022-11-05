@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { books, reviews, kinds } = require('./mock');
+const { books, reviews, kinds, booksById, reviewsById } = require('./mock');
 
 router.get('/kinds', (req, res) => {
   res.status(200).json(kinds);
@@ -12,13 +12,15 @@ router.get('/books', (req, res) => {
     return res.status(200).json(books);
   }
   if (bookId) {
-    return res.status(200).json(books.find(({ id }) => id === bookId));
+    return res.status(200).json(booksById[bookId]);
   }
 
   // Имитация длительной загрузки, чтобы можно было посмотреть на спиннер.
   setTimeout(() => {
     const kindBooks = kinds.find(({ id }) => id === kindId).books;
-    res.status(200).json(books.filter(({ id }) => kindBooks.includes(id)));
+    const result = kindBooks.map(book => booksById[book]);
+    res.status(200).json(result);
+    // res.status(200).json(books.filter(({ id }) => kindBooks.includes(id)));
   }, 300);
 });
 
@@ -28,10 +30,12 @@ router.get('/reviews', (req, res) => {
     return res.status(200).json(reviews);
   }
   if (bookId) {
-    return res.status(200).json(reviews[bookId]);
+    const reviews = booksById[bookId].reviews;
+    const result = reviews.map(review => reviewsById[review]);
+    return res.status(200).json(result);
   }
   res.status(200)
-    .json(Object.values(reviews).flat().find(({ id }) => id === reviewId));
+    .json(reviewsById[reviewId]);
 });
 
 module.exports = router;
