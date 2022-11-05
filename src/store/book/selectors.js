@@ -1,4 +1,5 @@
 import { selectKindById } from '../kind/selectors';
+import { Statuses } from '../../data/Statuses';
 
 const selectBookSlice = state => state.book;
 
@@ -17,4 +18,16 @@ const selectBooksByKind = (state, kindId) => {
   return selectedBooks.map(book => allBooks[book]).filter(book => book);
 };
 
-export { selectBookSlice, selectBooks, selectBookIds, selectBooksByKind };
+const selectIsLoading = state => {
+  console.log(selectBookSlice(state));
+  return selectBookSlice(state).status ===
+    Statuses.inProgress;
+};
+
+export {
+  selectBookSlice,
+  selectBooks,
+  selectBookIds,
+  selectBooksByKind,
+  selectIsLoading,
+};

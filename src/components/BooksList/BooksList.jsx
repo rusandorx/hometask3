@@ -5,15 +5,15 @@ import { useBooks } from '../../hooks';
 import Spinner from '../Spinner/Spinner';
 
 export const BooksList = () => {
-  const books = useBooks();
+  const { books, isLoading } = useBooks();
 
-  if (!books?.length) {
+  if (isLoading) {
     return <Spinner/>;
   }
 
   return (
     <ul className={classNames(classes.list)}>
-      {books
+      {books?.length && books
         .map(book => (
           <li key={book.id}
               className={classNames(classes.item)}
