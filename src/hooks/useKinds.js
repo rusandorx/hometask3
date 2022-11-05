@@ -13,7 +13,7 @@ export const useKinds = () => {
   const kinds = useSelector(selectKinds);
   const selectedKindId = useSelector(selectSelectedKindId);
   const isLoading = useSelector(selectIsKindsLoading);
-  const setSelectedKindId = (id) => dispatch(changeSelectedKindId(id));
+  const setSelectedKindId = id => dispatch(changeSelectedKindId(id));
 
   useEffect(() => dispatch(loadKinds), []);
   return { kinds, selectedKindId, isLoading, setSelectedKindId };

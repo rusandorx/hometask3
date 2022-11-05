@@ -13,19 +13,21 @@ export const BooksList = () => {
 
   return (
     <ul className={classNames(classes.list)}>
-      {books?.length && books
-        .map(book => (
-          <li key={book.id}
-              className={classNames(classes.item)}
-          >
-            <BookCard title={book.title}
-                      author={book.author}
-                      genre={book.genre}
-                      rating={book.rating}
-                      cost={book.cost}
-            />
-          </li>
-        ))}
+      {books?.length
+        ? books
+          .map(book => (
+            <li key={book.id}
+                className={classNames(classes.item)}
+            >
+              <BookCard title={book.title}
+                        author={book.author}
+                        genre={book.genre}
+                        rating={book.rating}
+                        cost={book.cost}
+              />
+            </li>
+          ))
+        : null}
     </ul>
   );
 };

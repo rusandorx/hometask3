@@ -3,9 +3,7 @@ import { Statuses } from '../../data/Statuses';
 
 const selectBookSlice = state => state.book;
 
-const selectBooks = state => {
-  return Object.values(selectBookSlice(state).entities);
-};
+const selectBooks = state => Object.values(selectBookSlice(state).entities);
 
 const selectBookIds = state => selectBookSlice(state).ids;
 
@@ -18,10 +16,8 @@ const selectBooksByKind = (state, kindId) => {
   return selectedBooks.map(book => allBooks[book]).filter(book => book);
 };
 
-const selectIsBooksLoading = state => {
-  return selectBookSlice(state).status ===
-    Statuses.inProgress;
-};
+const selectIsBooksLoading = state => selectBookSlice(state).status ===
+  Statuses.inProgress;
 
 export {
   selectBookSlice,

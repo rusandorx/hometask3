@@ -2,9 +2,7 @@ import { Statuses } from '../../data/Statuses';
 
 const selectKindSlice = state => state.kind;
 
-const selectKinds = state => {
-  return Object.values(selectKindSlice(state).entities);
-};
+const selectKinds = state => Object.values(selectKindSlice(state).entities);
 
 const selectKindById = (state, id) => {
   if (!state || !id) {
@@ -13,17 +11,12 @@ const selectKindById = (state, id) => {
   return selectKindSlice(state).entities[id];
 };
 
-const selectKindIds = state => {
-  return selectKindSlice(state).ids;
-};
+const selectKindIds = state => selectKindSlice(state).ids;
 
-const selectSelectedKindId = state => {
-  return selectKindSlice(state).selectedKindId;
-};
+const selectSelectedKindId = state => selectKindSlice(state).selectedKindId;
 
-const selectIsKindsLoading = state => {
-  return selectKindSlice(state).status === Statuses.inProgress;
-};
+const selectIsKindsLoading = state => selectKindSlice(state).status ===
+  Statuses.inProgress;
 
 export {
   selectKindSlice,
