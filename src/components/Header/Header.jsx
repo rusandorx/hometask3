@@ -8,8 +8,8 @@ export const Header = () => (
       <NavLink className={classes.link} to="/">
           <h1 className={classes.name}>Магазин</h1>
       </NavLink>
-      <a className={classNames(classes.link, classes.header__logo,
-        'fa-solid fa-cart-shopping')}/>
+      <NavLink className={classNames(classes.link, classes.header__logo,
+        'fa-solid fa-cart-shopping')} to="/cart"/>
     </nav>
   </header>
 );

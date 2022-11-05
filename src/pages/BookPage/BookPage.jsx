@@ -12,8 +12,12 @@ const BookPage = () => {
   const { bookId } = useParams();
   const { book, isLoading } = useBook(bookId);
 
-  if (isLoading || !book) {
+  if (isLoading) {
     return <Spinner/>;
+  }
+
+  if (!bookId || !book) {
+    return <div>Книга не найдена</div>;
   }
 
   return (

@@ -1,0 +1,51 @@
+.card {
+    padding: 2rem;
+    margin: 0;
+    position: sticky;
+    top: 2rem;
+    float: top;
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 40vh;
+    max-height: 80vh;
+    overflow-y: auto;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card__heading {
+    margin-top: 0;
+}
+
+.card__result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    column-gap: 1.25rem;
+    row-gap: 1.75rem;
+    list-style: none;
+    margin-block-start: 0;
+    padding: 0;
+}
+
+.price {
+    display: inline;
+    width: 3rem;
+    white-space: nowrap;
+    margin: auto auto;
+}
+
+.button {
+    color: #fff;
+    border-radius: 10px;
+    background-color: #000;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+}

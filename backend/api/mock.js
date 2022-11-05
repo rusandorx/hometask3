@@ -267,7 +267,7 @@ const books = [
     author: 'Одиночка из Комиксов',
     genre: 'Комикс',
     rating: 5,
-    cost: 142.523,
+    cost: 140,
     id: '4157838b-b7f3-423c-9ecc-9487383adb48',
   },
 ];

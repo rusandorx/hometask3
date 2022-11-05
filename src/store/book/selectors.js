@@ -24,6 +24,11 @@ const selectBookById = (state, bookId) => {
     .entities[bookId];
 };
 
+const selectBooksByIds = (state, booksIds) => {
+  const books = selectBookSlice(state).entities;
+  return booksIds.map(id => books[id]);
+};
+
 export {
   selectBookSlice,
   selectBooks,
@@ -31,4 +36,5 @@ export {
   selectBooksByKind,
   selectIsBooksLoading,
   selectBookById,
+  selectBooksByIds
 };

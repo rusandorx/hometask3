@@ -2,10 +2,10 @@ import classes from './BookList.module.css';
 import { BookCard } from '../BookCard/BookCard';
 import classNames from 'classnames';
 import Spinner from '../Spinner/Spinner';
-import { useBooks } from '../../hooks/useBooks';
+import { options, useBooks } from '../../hooks/useBooks';
 
-export const BooksList = () => {
-  const { books, isLoading } = useBooks();
+export const BooksList = ({ option = options.bySelectedKind }) => {
+  const { books, isLoading } = useBooks(option);
 
   if (isLoading) {
     return <Spinner/>;

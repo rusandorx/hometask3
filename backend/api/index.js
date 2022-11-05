@@ -20,7 +20,6 @@ router.get('/books', (req, res) => {
     const kindBooks = kinds.find(({ id }) => id === kindId).books;
     const result = kindBooks.map(book => booksById[book]);
     res.status(200).json(result);
-    // res.status(200).json(books.filter(({ id }) => kindBooks.includes(id)));
   }, 300);
 });
 

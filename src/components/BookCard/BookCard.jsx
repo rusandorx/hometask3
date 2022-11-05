@@ -10,8 +10,9 @@ export const BookCard = ({
   bookId,
   isCounterDown = false,
 }) => {
-  const { title, author, genre, rating, cost } = useSelector(
+  const book = useSelector(
     state => selectBookById(state, bookId));
+  const { title, author, genre, rating, cost } = book;
 
   return (
     <article className={classes.bookCard}>
@@ -31,7 +32,7 @@ export const BookCard = ({
         </div>
         <div className={classNames(classes.container,
           { [classes.container_down]: isCounterDown })}>
-          <Counter/>
+          <Counter bookId={bookId}/>
         </div>
       </div>
     </article>
