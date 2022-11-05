@@ -5,6 +5,8 @@ import { Counter } from '../Counter/Counter';
 import { useSelector } from 'react-redux';
 import { selectBookById } from '../../store/book/selectors';
 import { NavLink } from 'react-router-dom';
+import { useReviews } from '../../hooks/useReviews';
+import { useMemo } from 'react';
 
 export const BookCard = ({
   bookId,
@@ -12,7 +14,11 @@ export const BookCard = ({
 }) => {
   const book = useSelector(
     state => selectBookById(state, bookId));
-  const { title, author, genre, rating, cost } = book;
+  const { title, author, genre, cost } = book;
+  const { reviews } = useReviews(bookId);
+  const rating = useMemo(() => Math.round(
+    (reviews.map(review => review.rating).reduce((a, b) => a + b, 0)) /
+    reviews.length), [reviews]);
 
   return (
     <article className={classes.bookCard}>
@@ -25,9 +31,7 @@ export const BookCard = ({
             <p className={classes.text}>{author}</p>
             <p className={classes.text}>{genre}</p>
           </div>
-          <Rating rating={rating}
-                  all={5}
-          />
+          <Rating rating={rating}/>
           <h2 className={classes.text}>{cost} &#x20BD;</h2>
         </div>
         <div className={classNames(classes.container,

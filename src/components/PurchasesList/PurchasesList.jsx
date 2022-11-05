@@ -26,8 +26,8 @@ export const PurchasesList = () => {
           {
             books.map(book =>
               <React.Fragment key={book.id}>
-                <div className={classes.title}>{book.title}</div>
-                <h4 className={classes.price}>{book.cost} &#8381; </h4>
+                <div className={classes.title}>{book.title} {cartSlice[book.id] !== 1 && `(${cartSlice[book.id]})`}</div>
+                <h4 className={classes.price}>{book.cost * cartSlice[book.id]} &#8381; </h4>
               </React.Fragment>)
           }
         </ul>

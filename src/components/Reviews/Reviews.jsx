@@ -1,24 +1,22 @@
 import classes from './Reviews.module.css';
 import Review from '../Review/Review';
-import { useReviews } from '../../hooks/useReviews';
+import { useSelector } from 'react-redux';
+import { selectBooksReviewIds } from '../../store/book/selectors';
 
 export const Reviews = ({ bookId }) => {
-  const { reviews } = useReviews(bookId);
+  const reviewIds = useSelector(state => selectBooksReviewIds(state, bookId));
 
-  if (!reviews?.length) {
+  if (!reviewIds?.length) {
     return null;
   }
 
   return (
     <section>
       <ul className={classes.list}>
-        {reviews.map(({ author, text, rating }, i) =>
-          <li key={i}>
+        {reviewIds.map(reviewId =>
+          <li key={reviewId}>
             <article>
-              <Review name={author}
-                      text={text}
-                      rating={rating}
-              />
+              <Review reviewId={reviewId}/>
             </article>
           </li>,
         )}

@@ -1,7 +1,7 @@
 import classes from './Rating.module.css';
 import classNames from 'classnames';
 
-export const Rating = ({ rating, all }) => {
+export const Rating = ({ rating, all = 5 }) => {
   const starsClasses = Array(all)
     .fill('fa-regular fa-star')
     .fill('fa-solid fa-star', 0, rating);

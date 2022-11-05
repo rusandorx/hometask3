@@ -1,0 +1,22 @@
+.cart {
+    position: relative;
+}
+
+.count {
+    background-color: #edeaea;
+    color: #000;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 11px;
+    right: -15px;
+    text-align: center;
+    baseline-shift: 10px;
+    padding-top: 2px;
+}
+
+
+.logo {
+    font-size: 1.5rem;
+}

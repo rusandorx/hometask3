@@ -14,13 +14,9 @@ router.get('/books', (req, res) => {
   if (bookId) {
     return res.status(200).json(booksById[bookId]);
   }
-
-  // Имитация длительной загрузки, чтобы можно было посмотреть на спиннер.
-  setTimeout(() => {
-    const kindBooks = kinds.find(({ id }) => id === kindId).books;
-    const result = kindBooks.map(book => booksById[book]);
-    res.status(200).json(result);
-  }, 300);
+  const kindBooks = kinds.find(({ id }) => id === kindId).books;
+  const result = kindBooks.map(book => booksById[book]);
+  res.status(200).json(result);
 });
 
 router.get('/reviews', (req, res) => {
