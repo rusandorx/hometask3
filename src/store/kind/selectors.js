@@ -1,3 +1,5 @@
+import { Statuses } from '../../data/Statuses';
+
 const selectKindSlice = state => state.kind;
 
 const selectKinds = state => {
@@ -19,10 +21,15 @@ const selectSelectedKindId = state => {
   return selectKindSlice(state).selectedKindId;
 };
 
+const selectIsKindsLoading = state => {
+  return selectKindSlice(state).status === Statuses.inProgress;
+};
+
 export {
   selectKindSlice,
   selectKinds,
   selectSelectedKindId,
   selectKindIds,
   selectKindById,
+  selectIsKindsLoading,
 };

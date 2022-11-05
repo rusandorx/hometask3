@@ -1,13 +1,16 @@
-import { useEffect } from 'react';
-import { loadBooks } from './store/book/loadBooks';
-import { selectBooksByKind, selectIsLoading } from './store/book/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSelectedKindId } from './store/kind/selectors';
+import { selectSelectedKindId } from '../store/kind/selectors';
+import {
+  selectBooksByKind,
+  selectIsBooksLoading,
+} from '../store/book/selectors';
+import { useEffect } from 'react';
+import { loadBooks } from '../store/book/loadBooks';
 
 export const useBooks = () => {
   const dispatch = useDispatch();
   const selectedKindId = useSelector(selectSelectedKindId);
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsBooksLoading);
   const books = useSelector(
     (state) => selectBooksByKind(state, selectedKindId));
 

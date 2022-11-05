@@ -1,19 +1,11 @@
 import classes from './KindList.module.css';
 import classNames from 'classnames';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadKinds } from '../../store/kind/loadKinds';
-import { selectKinds, selectSelectedKindId } from '../../store/kind/selectors';
-import { changeSelectedKindId } from '../../store/kind';
+import { useKinds } from '../../hooks/useKinds';
 
 export const KindList = () => {
-  const dispatch = useDispatch();
-  const kinds = useSelector(selectKinds);
-  const selectedKindId = useSelector(selectSelectedKindId);
+  const { kinds, selectedKindId, setSelectedKindId, isLoading } = useKinds();
 
-  useEffect(() => dispatch(loadKinds), []);
-
-  if (!kinds?.length) {
+  if (isLoading || !kinds?.length) {
     return null;
   }
 
@@ -25,7 +17,7 @@ export const KindList = () => {
             <button
               className={classNames(classes.button,
                 { [classes.button_current]: selectedKindId === kind.id })}
-              onClick={() => dispatch(changeSelectedKindId(kind.id))}>
+              onClick={() => setSelectedKindId(kind.id)}>
               {kind.name}
             </button>
           </li>)

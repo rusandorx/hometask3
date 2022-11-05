@@ -18,8 +18,7 @@ const selectBooksByKind = (state, kindId) => {
   return selectedBooks.map(book => allBooks[book]).filter(book => book);
 };
 
-const selectIsLoading = state => {
-  console.log(selectBookSlice(state));
+const selectIsBooksLoading = state => {
   return selectBookSlice(state).status ===
     Statuses.inProgress;
 };
@@ -29,5 +28,5 @@ export {
   selectBooks,
   selectBookIds,
   selectBooksByKind,
-  selectIsLoading,
+  selectIsBooksLoading,
 };
