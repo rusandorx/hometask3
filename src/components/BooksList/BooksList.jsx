@@ -1,14 +1,14 @@
 import classes from './BookList.module.css';
 import { BookCard } from '../BookCard/BookCard';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
 import { useBooks } from '../../hooks';
+import Spinner from '../Spinner/Spinner';
 
 export const BooksList = () => {
   const books = useBooks();
 
   if (!books?.length) {
-    return <p>Загрузка</p>;
+    return <Spinner/>;
   }
 
   return (

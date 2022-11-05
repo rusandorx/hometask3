@@ -14,13 +14,13 @@ export const KindList = () => {
   useEffect(() => dispatch(loadKinds), []);
 
   if (!kinds?.length) {
-    return <p>Загрузка</p>;
+    return null;
   }
 
   return (
     <ul className={classNames(classes.list)}>
       {
-        kinds.map((kind, i) =>
+        kinds.map(kind =>
           <li key={kind.id} className={classNames(classes.item)}>
             <button
               className={classNames(classes.button,
